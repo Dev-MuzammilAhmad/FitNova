@@ -1,0 +1,122 @@
+/* Import Inter font — must come before @import "tailwindcss" to satisfy CSS spec */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Tailwind v4 — single import replaces @tailwind base/components/utilities */
+@import "tailwindcss";
+
+/* ─── Custom Design Tokens (v4 CSS-first config) ─────────────────────────── */
+@theme {
+  --color-primary:       #1A1A1A;
+  --color-secondary:     #252525;
+  --color-accent:        #FF5A2E;
+  --color-accent-dark:   #DD4921;
+  --color-text-main:     #D3D3D3;
+  --color-text-contrast: #FFFFFF;
+
+  --font-family-sans: "Inter", sans-serif;
+
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+  --animate-fade-in: fade-in 0.5s ease-out both;
+  --animate-slide-in-left: slide-in-left 0.6s ease-out both;
+  --animate-slide-in-right: slide-in-right 0.6s ease-out both;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-bounce-in: bounce-in 0.5s ease-out both;
+}
+
+/* ─── Keyframes ──────────────────────────────────────────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 90, 46, 0.3); }
+  50%      { box-shadow: 0 0 40px rgba(255, 90, 46, 0.6); }
+}
+
+@keyframes bounce-in {
+  0%   { opacity: 0; transform: scale(0.3); }
+  50%  { transform: scale(1.05); }
+  70%  { transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #1A1A1A;
+    color: #D3D3D3;
+    font-family: "Inter", sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar        { width: 6px; }
+  ::-webkit-scrollbar-track  { background: #1A1A1A; }
+  ::-webkit-scrollbar-thumb  { background: #FF5A2E; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #DD4921; }
+}
+
+/* ─── Reusable Components ─────────────────────────────────────────────────── */
+@layer components {
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-dark text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply border border-accent text-accent hover:bg-accent hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-secondary rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-white md:text-4xl;
+  }
+
+  .highlight {
+    @apply text-accent;
+  }
+
+  /* Page wrapper with fade-in animation */
+  .page-enter {
+    animation: fade-in-up 0.5s ease-out both;
+  }
+}
