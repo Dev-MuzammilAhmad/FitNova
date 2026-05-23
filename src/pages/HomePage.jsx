@@ -29,18 +29,22 @@ const HomePage = () => {
 
   const handleSearch = useCallback((query) => {
     setSearchQuery(query)
-    if (query) scrollToResults()
-  }, [setSearchQuery, scrollToResults])
+    if (query) {
+      setSelectedBodyPart('')
+      scrollToResults()
+    }
+  }, [setSearchQuery, setSelectedBodyPart, scrollToResults])
 
   const handleSelectBodyPart = useCallback((part) => {
     setSelectedBodyPart(part)
+    setSearchQuery('')
     scrollToResults()
-  }, [setSelectedBodyPart, scrollToResults])
+  }, [setSelectedBodyPart, setSearchQuery, scrollToResults])
 
   return (
     <div className="page-enter">
       <HeroSection />
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar searchQuery={searchQuery} onSearch={handleSearch} />
       <BodyPartCategories
         onSelectBodyPart={handleSelectBodyPart}
         selectedBodyPart={selectedBodyPart}

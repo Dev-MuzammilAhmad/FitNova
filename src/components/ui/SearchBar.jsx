@@ -1,8 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { SearchIcon, CloseIcon } from '../ui/Icons'
 
-const SearchBar = ({ onSearch }) => {
-  const [query, setQuery] = useState('')
+const SearchBar = ({ searchQuery, onSearch }) => {
+  const [query, setQuery] = useState(searchQuery || '')
+
+  useEffect(() => {
+    setQuery(searchQuery || '')
+  }, [searchQuery])
 
   const handleSubmit = (e) => {
     e.preventDefault()
