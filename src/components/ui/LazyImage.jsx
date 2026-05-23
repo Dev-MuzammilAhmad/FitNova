@@ -38,7 +38,7 @@ const LazyImage = ({ src, alt, className = '', imgClassName = '', fallback = nul
       )}
       {showFallback && (
         <div className="absolute inset-0 flex items-center justify-center">
-          {fallback || <DumbbellIcon className="w-12 h-12 text-textMain/30" />}
+          {fallback || <DumbbellIcon className="w-10 h-10 text-text-main/30" />}
         </div>
       )}
     </div>

@@ -17,15 +17,15 @@ const SearchBar = ({ onSearch }) => {
   }
 
   return (
-    <section id="search" className="bg-primary py-16">
+    <section id="search" className="bg-primary py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
           <h2 className="section-title">
             Find Your <span className="highlight">Exercise</span>
           </h2>
-          <p className="text-textMain mt-3 text-lg max-w-xl mx-auto">
+          <p className="text-text-main mt-2 text-sm max-w-lg mx-auto">
             Search by exercise name, target muscle, or equipment.
           </p>
         </div>
@@ -38,8 +38,8 @@ const SearchBar = ({ onSearch }) => {
           {/* Input */}
           <div className="relative w-full">
             {/* Search Icon */}
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-textMain/50">
-              <SearchIcon className="w-4.5 h-4.5" />
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-text-main/50">
+              <SearchIcon className="w-4 h-4" />
             </span>
 
             <input
@@ -47,7 +47,7 @@ const SearchBar = ({ onSearch }) => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search exercises, muscles, equipment..."
-              className="w-full bg-secondary text-textContrast placeholder-textMain/40 border border-white/10 rounded-xl pl-11 pr-10 py-4 text-sm focus:outline-none focus:border-accent transition-colors duration-300"
+              className="w-full bg-secondary text-text-contrast placeholder-text-main/40 border border-white/[0.08] rounded-xl pl-10 pr-9 py-3 text-sm focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all duration-300"
             />
 
             {/* Clear Button */}
@@ -55,9 +55,9 @@ const SearchBar = ({ onSearch }) => {
               <button
                 type="button"
                 onClick={handleClear}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-textMain/50 hover:text-white transition-colors duration-300"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-text-main/50 hover:text-white transition-colors duration-300"
               >
-                <CloseIcon className="w-4 h-4" />
+                <CloseIcon className="w-3.5 h-3.5" />
               </button>
             )}
           </div>
@@ -65,14 +65,14 @@ const SearchBar = ({ onSearch }) => {
           {/* Search Button */}
           <button
             type="submit"
-            className="btn-primary w-full sm:w-auto px-8 py-4 text-sm whitespace-nowrap"
+            className="btn-primary w-full sm:w-auto px-6 py-3 text-sm whitespace-nowrap"
           >
             Search
           </button>
         </form>
 
         {/* Search Suggestions */}
-        <div className="flex flex-wrap gap-2 justify-center mt-6">
+        <div className="flex flex-wrap gap-2 justify-center mt-5">
           {['Push Up', 'Squat', 'Biceps', 'Chest', 'Barbell'].map((tag) => (
             <button
               key={tag}
@@ -80,7 +80,7 @@ const SearchBar = ({ onSearch }) => {
                 setQuery(tag)
                 onSearch(tag.toLowerCase())
               }}
-              className="bg-secondary border border-white/10 hover:border-accent text-textMain hover:text-accent text-xs font-medium px-4 py-2 rounded-full transition-all duration-300"
+              className="bg-secondary border border-white/[0.08] hover:border-accent/40 text-text-main hover:text-accent text-[11px] font-medium px-3 py-1.5 rounded-full transition-all duration-300"
             >
               {tag}
             </button>

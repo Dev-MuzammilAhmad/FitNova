@@ -47,11 +47,11 @@ const HomePage = () => {
       />
 
       {/* Exercise Listing Section */}
-      <section ref={resultsRef} className="bg-primary py-16 scroll-mt-4">
+      <section ref={resultsRef} className="bg-primary py-10 scroll-mt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
             <h2 className="section-title">
               {searchQuery ? (
                 <>Results for <span className="highlight">"{searchQuery}"</span></>
@@ -62,7 +62,7 @@ const HomePage = () => {
               )}
             </h2>
             {!loading && (
-              <span className="text-textMain text-sm">
+              <span className="text-text-main text-xs">
                 {totalCount} exercise{totalCount !== 1 ? 's' : ''} found
               </span>
             )}

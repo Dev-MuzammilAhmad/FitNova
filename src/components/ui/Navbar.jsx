@@ -12,17 +12,17 @@ const Navbar = () => {
   ]
 
   const linkClass = ({ isActive }) =>
-    `relative text-sm font-semibold transition-colors duration-300 py-1 ${
-      isActive ? 'text-accent' : 'text-textContrast hover:text-accent'
+    `relative text-[13px] font-semibold transition-colors duration-300 py-1 ${
+      isActive ? 'text-accent' : 'text-text-contrast hover:text-accent'
     }`
 
   return (
-    <nav className="bg-secondary/95 backdrop-blur-md sticky top-0 z-50 shadow-md shadow-black/30 border-b border-white/5">
+    <nav className="bg-secondary/95 backdrop-blur-md sticky top-0 z-50 shadow-md shadow-black/30 border-b border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
 
           {/* Logo */}
-          <Link to="/" className="text-2xl font-black tracking-tight">
+          <Link to="/" className="text-xl font-black tracking-tight">
             FIT<span className="text-accent">NOVA</span>
           </Link>
 
@@ -46,7 +46,7 @@ const Navbar = () => {
             
             <a
               href="#search"
-              className="btn-primary text-sm px-5 py-2"
+              className="btn-primary text-[13px] px-4 py-1.5"
             >
               Explore
             </a>
@@ -58,9 +58,9 @@ const Navbar = () => {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
 
         </div>
@@ -72,20 +72,20 @@ const Navbar = () => {
           menuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-secondary border-t border-white/10 px-4 pb-4 flex flex-col gap-4 pt-3">
+        <div className="bg-secondary border-t border-white/[0.06] px-4 pb-3 flex flex-col gap-3 pt-2">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path
             return (
               <NavLink
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-semibold transition-colors duration-300 ${
-                  isActive ? 'text-accent' : 'text-textContrast hover:text-accent'
+                className={`text-[13px] font-semibold transition-colors duration-300 ${
+                  isActive ? 'text-accent' : 'text-text-contrast hover:text-accent'
                 }`}
                 end
                 onClick={() => setMenuOpen(false)}
               >
-                {isActive && <span className="inline-block w-2 h-2 bg-accent rounded-full mr-2" />}
+                {isActive && <span className="inline-block w-1.5 h-1.5 bg-accent rounded-full mr-2" />}
                 {link.label}
               </NavLink>
             )
@@ -93,7 +93,7 @@ const Navbar = () => {
           
           <a
             href="#search"
-            className="btn-primary text-sm text-center px-5 py-2"
+            className="btn-primary text-[13px] text-center px-4 py-1.5"
             onClick={() => setMenuOpen(false)}
           >
             Explore
