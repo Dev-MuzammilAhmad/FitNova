@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { WeightlifterIcon } from './Icons'
+
 
 const CountUp = ({ target, suffix = '', duration = 2000 }) => {
   const [count, setCount] = useState(0)
@@ -112,12 +112,16 @@ const HeroSection = () => {
 
           {/* Right — Visual Card */}
           <div className="hidden lg:flex flex-1 justify-center lg:justify-end animate-slide-in-right lg:pr-16" style={{ animationDelay: '0.3s' }}>
-            <div className="relative w-64 sm:w-72 lg:w-80">
+            <div className="relative w-72 sm:w-80 lg:w-[350px]">
 
               {/* Main card */}
               <div className="card p-5 flex flex-col gap-3">
-                <div className="w-full h-40 bg-accent/10 rounded-lg flex items-center justify-center">
-                  <WeightlifterIcon className="w-14 h-14 text-accent" />
+                <div className="relative w-full h-48 overflow-hidden rounded-lg">
+                  <img
+                    src="/IMG.png"
+                    alt="Barbell Bench Press Video Preview"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="flex flex-col gap-0.5">
                   <span className="text-white font-bold text-base">Barbell Bench Press</span>
